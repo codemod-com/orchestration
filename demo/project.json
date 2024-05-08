@@ -1,0 +1,30 @@
+{
+  "name": "demo",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "demo/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/demo",
+        "main": "demo/src/index.ts",
+        "tsConfig": "demo/tsconfig.lib.json",
+        "assets": [],
+        "project": "demo/package.json",
+        "compiler": "swc",
+        "format": ["cjs", "esm"],
+        "rollupConfig": "demo/rollup.config.js"
+      }
+    },
+    "run-migration": {
+      "command": "ts-node demo/src/migration.ts"
+    },
+    "watch-migration": {
+      "command": "pnpm nx watch --projects=demo --includeDependentProjects -- pnpm nx run-migration demo"
+    }
+  },
+  "implicitDependencies": ["babel-plugin"]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "babel-plugin",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "babel-plugin/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/babel-plugin",
+        "main": "babel-plugin/src/index.ts",
+        "tsConfig": "babel-plugin/tsconfig.lib.json",
+        "assets": ["babel-plugin/*.md"]
+      }
+    }
+  }
+}

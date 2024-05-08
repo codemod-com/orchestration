@@ -1,0 +1,23 @@
+{
+  "name": "migration-demo-babel",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "migration-demo-babel/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/migration-demo-babel",
+        "main": "migration-demo-babel/src/index.ts",
+        "tsConfig": "migration-demo-babel/tsconfig.lib.json",
+        "assets": ["migration-demo-babel/*.md"],
+        "generatePackageJson": false,
+        "format": ["cjs"],
+        "esbuildConfig": "migration-demo-babel/esbuild.config.js"
+      }
+    }
+  },
+  "implicitDependencies": ["babel-plugin"]
+}

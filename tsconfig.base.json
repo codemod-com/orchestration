@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@migration-engine/babel-plugin": ["babel-plugin/src/index.ts"],
+      "@migration-engine/migration-demo": ["migration-demo/src/index.ts"],
+      "@migration-engine/migration-demo-babel": [
+        "migration-demo-babel/src/index.ts"
+      ],
+      "@migration-engine/demo": ["demo/src/index.ts"],
+      "@migration-engine/ts-plugin": ["ts-plugin/src/index.ts"]
+    },
+    "plugins": [{ "name": "@migration-engine/ts-plugin" }]
+  },
+  "exclude": ["node_modules", "tmp"]
+}

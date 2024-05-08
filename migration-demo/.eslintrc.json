@@ -1,0 +1,32 @@
+{
+  "extends": ["../.eslintrc.json"],
+  "ignorePatterns": ["!**/*"],
+  "plugins": ["pure"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "no-var": "error",
+        "prefer-const": "error",
+        "no-undef": "error",
+        "no-unused-vars": "error",
+        "pure/pure": "error"
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {}
+    },
+    {
+      "files": ["*.json"],
+      "parser": "jsonc-eslint-parser",
+      "rules": {
+        "@nx/dependency-checks": "error"
+      }
+    }
+  ]
+}
