@@ -36,6 +36,34 @@ const recipe = async () => {
   );
 };
 
+/**
+ * You can walk through repositories in 3 ways:
+ * 
+ * 1. As a callback passed as 2nd argument to repositories function
+ * repositories(`...some repositories...`, async ({ branch, commit }) => {
+ *   await branch('update-frontend-version');
+ *   await commit();
+ * });
+ * 
+ * 2. Save a link to tagged template literal and call methods on it
+ * const repositories1 = repositories`...some repositories...`;
+ * await repositories1.branch('update-frontend-version');
+ * await repositories1.commit();
+ * 
+ * 3. As a recipe
+ *    3.1. Create a recipe function that will call repositories with callback as first argument
+ *      const recipe = async () => {
+ *        await repositories(async ({ branch, commit }) => {
+ *          await branch('update-frontend-version');
+ *          await commit();
+ *        });
+ *      };
+ *    3.2. Call recipe function inside repositories callback
+ *      repositories(`...some repositories...`, async () => {
+ *        await recipe();
+ *      });
+ */
+
 describe('codemode.com migration', () => {
   migrate('update frontend version', async ({ repositories }) => {
     await repositories(
